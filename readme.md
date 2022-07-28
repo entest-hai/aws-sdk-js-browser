@@ -5,7 +5,7 @@ AWS-SDK-JS version 3 two modes
 - NodeJS
 - Browser
 
-for the browser, need to use webpack to package dependencies such as "@aws-sdk/client-s3" into main.js for the index.html.
+for the browser, need to use webpack to package dependencies such as "@aws-sdk/client-s3" into main.js for the index.html. Also need to provide a cognito identity pool so client can be granted to aws services such as uploading to a S3 bucket. Then we can run index.html for uploading files to S3
 
 ## Project Structure
 
