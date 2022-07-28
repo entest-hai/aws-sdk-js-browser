@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <script src="./main.js" type="text/javascript"></script>
+    <style>
+      .upload-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 800px;
+        padding: 10px;
+      }
+
+      .upload-button {
+        background-color: green;
+        color: white;
+        font-size: 24px;
+        width: 300px;
+        height: 60px;
+        border-radius: 10px;
+        border-width: 0;
+        cursor: pointer;
+        font-family: sans-serif;
+      }
+
+      .choose-file-text {
+        font-size: 24px;
+        background-color: gainsboro;
+        color: gray;
+        width: 350px;
+        height: 55px;
+        border-width: 0;
+        font-family: sans-serif;
+        pointer-events: none;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      input[type="file"] {
+        position: absolute;
+        z-index: -1;
+        top: 10px;
+        left: 8px;
+        font-size: 17px;
+        color: #b8b8b8;
+        width: 0;
+      }
+      .button-wrap {
+        position: relative;
+        padding: 20px;
+      }
+      .choose-file-button {
+        display: inline-block;
+        padding: 15px;
+        border-width: 0;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: orange;
+        font-size: 24px;
+        color: #fff;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="upload-form">
+      <div class="container">
+        <div class="button-wrap">
+          <label class="choose-file-button" for="upload">Choose File</label>
+          <input id="upload" type="file" />
+        </div>
+        <input
+          type="text"
+          id="show-form"
+          value="choosen file"
+          class="choose-file-text"
+        />
+      </div>
+      <button class="upload-button" onclick="window.uploadData()">
+        Upload
+      </button>
+      <script>
+        const hiddenForm = document.getElementById("upload");
+        const showForm = document.getElementById("show-form");
+        hiddenForm.addEventListener("change", (event) => {
+          console.log(event.target.value);
+          const path = event.target.value;
+          showForm.value = path.replace(/^.*[\\\/]/, "");
+        });
+      </script>
+    </div>
+  </body>
+</html>
